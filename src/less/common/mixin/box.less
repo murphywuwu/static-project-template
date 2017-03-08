@@ -1,0 +1,69 @@
+@charset "UTF-8";
+// 矩形
+.rectangle ( @width; @height ) {
+  .px1rem(width, @width);
+  .px1rem(height, @height);
+}
+// 正方形
+.square ( @size ) {
+  .rectangle ( @size; @size );
+}
+
+// 圆形
+.circle ( @size ) {
+  .square( @size );
+  .px1rem(border-radius, @size);
+}
+
+// 边框
+.border-bottom ( @px, @color) {
+  border-bottom : @px/37.5rem solid @color;
+}
+.border-top ( @px, @color ) {
+  border-top : @px/37.5rem solid @color;
+}
+.border-left ( @px, @color ) {
+  border-left : @px/37.5rem solid @color;
+}
+.border-right ( @px, @color ) {
+  border-right : @px/37.5rem solid @color;
+}
+.border ( @px, @color ) {
+  border: @px/37.5rem solid @color;
+}
+
+// 三角形
+.triangle-base() {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    -moz-transform: scale(.9999);
+}
+.triangle(@direction, @size, @color) {
+    .triangle(@direction, @size * 2, @size, @color);
+}
+.triangle(@direction, @width, @height, @color) when (@direction = up) {
+    .triangle-base();
+    border-left: (@width / 2) solid transparent;
+    border-right: (@width / 2) solid transparent;
+    border-bottom: @height solid @color;
+}
+.triangle(@direction, @width, @height, @color) when (@direction = down) {
+    .triangle-base();
+    border-left: (@width / 2) solid transparent;
+    border-right: (@width / 2) solid transparent;
+    border-top: @height solid @color;
+}
+.triangle(@direction, @width, @height, @color) when (@direction = left) {
+    .triangle-base();
+    border-top: (@width / 2) solid transparent;
+    border-bottom: (@width / 2) solid transparent;
+    border-right: @height solid @color;
+}
+.triangle(@direction, @width, @height, @color) when (@direction = right) {
+    .triangle-base();
+    border-top: (@width / 2) solid transparent;
+    border-bottom: (@width / 2) solid transparent;
+    border-left: @height solid @color;
+}
