@@ -9,7 +9,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var glob = require('glob');
 var es = require('event-stream');
-var browserify = require('browserify');
+// var browserify = require('browserify');
 var through = require('through2');
 var gutil   = require('gulp-util');
 var log     = gutil.log;
@@ -121,46 +121,46 @@ gulp.task('dev-css', compileLess)
  * @return {[object]}  
  */
 
-function compileEs6 () {
-  var args = Array.prototype.slice.call(arguments);
-  var js_path = getFilePath('js', args[0]);
+// function compileEs6 () {
+//   var args = Array.prototype.slice.call(arguments);
+//   var js_path = getFilePath('js', args[0]);
 
-  return glob(js_path, function ( err, files ) {
-    if( err ) {
-      done( err );
-    }
-    const tasks = files.map(entry => {
-      var file = path.basename(entry);
+//   return glob(js_path, function ( err, files ) {
+//     if( err ) {
+//       done( err );
+//     }
+//     const tasks = files.map(entry => {
+//       var file = path.basename(entry);
 
-      return browserify({
-        debug: true,
-        entries: [entry],
-        extension: ['.js']
-      })
-      .transform(babelify)
-      .bundle()
-      .on('error', function ( err ) {
-        console.log(err);
-      })
-      .pipe(source(file))
-      .pipe(buffer())
-      .pipe(plugins.sourcemaps.init({
-        loadMaps: true
-      }))
-      .pipe(plugins.uglify())
-      .pipe(plugins.rename({
-        suffix: '.min'
-      }))
-      .pipe(plugins.sourcemaps.write('../../maps/js', {addComment: true}))
-      .pipe(gulp.dest(config.dist.js))
-      .pipe(reload({stream:true}))
-      .pipe(plugins.notify({
-        message: 'js编译压缩完成'
-      }))
-    });
-  })
-};
-gulp.task('dev-js', compileEs6);
+//       return browserify({
+//         debug: true,
+//         entries: [entry],
+//         extension: ['.js']
+//       })
+//       .transform(babelify)
+//       .bundle()
+//       .on('error', function ( err ) {
+//         console.log(err);
+//       })
+//       .pipe(source(file))
+//       .pipe(buffer())
+//       .pipe(plugins.sourcemaps.init({
+//         loadMaps: true
+//       }))
+//       .pipe(plugins.uglify())
+//       .pipe(plugins.rename({
+//         suffix: '.min'
+//       }))
+//       .pipe(plugins.sourcemaps.write('../../maps/js', {addComment: true}))
+//       .pipe(gulp.dest(config.dist.js))
+//       .pipe(reload({stream:true}))
+//       .pipe(plugins.notify({
+//         message: 'js编译压缩完成'
+//       }))
+//     });
+//   })
+// };
+// gulp.task('dev-js', compileEs6);
 
 /**
  * [compileEjs]
@@ -191,7 +191,7 @@ gulp.task('dev-html', compileEjs);
  */
 function imagemin () {
   return gulp.src(config.path.img)
-  .pipe(plugins.imagemin())
+  // .pipe(plugins.imagemin())
   .pipe(gulp.dest(config.dist.img))
   .pipe(reload({ stream : true }))
   .pipe(plugins.notify({
@@ -244,7 +244,6 @@ function sprites ( done ) {
   for(var i = 0,len=spriteData.length; i < len; i++) {
       spriteData[i].img
           .pipe(plugins.buffer())
-          .pipe(plugins.imagemin())
           .pipe(gulp.dest('./src/img/')) // 输出icon合图
           .pipe(reload({ stream : true }))
           .pipe(plugins.notify({
@@ -291,17 +290,17 @@ function watchFile () {
   });
   var watch_img = gulp.watch(config.path.img, gulp.parallel(imagemin));
   var watch_icon = gulp.watch(config.path.icon, gulp.series(generateIconFont, compileLess));
-  var watch_sprites = gulp.watch(config.path.sprites, gulp.parallel(sprites, imagemin, compileLess));
+  var watch_sprites = gulp.watch(config.path.sprites, gulp.parallel(sprites, compileLess));
 
   // 监听文件内容变化
   watch_less.on('change', function ( e ) {
     var file_path = path.resolve(e);
     compileLess(file_path);
   });
-  watch_js.on('change', function ( e ) {
-    var file_path = path.resolve(e);
-    compileEs6(file_path);
-  });
+  // watch_js.on('change', function ( e ) {
+  //   var file_path = path.resolve(e);
+  //   compileEs6(file_path);
+  // });
   watch_ejs.on('change', function ( e ) {
     var file_path = path.resolve(e);
     compileEjs(file_path);
@@ -323,11 +322,11 @@ function watchFile () {
     var file = './dist/html/' + base + 'html';
     plugins.del.sync(file);
   });
-  watch_img.on('unlink', function ( route ) {
-    var base = path.basename(route);
-    var file = './dist/img/' + base;
-    plugins.del.sync(file);
-  });
+  // watch_img.on('unlink', function ( route ) {
+  //   var base = path.basename(route);
+  //   var file = './dist/img/' + base;
+  //   plugins.del.sync(file);
+  // });
   watch_icon.on('unlink', function () {
     gulp.series(generateIconFont)();
   });
@@ -342,9 +341,8 @@ gulp.task('dev-watch', watchFile);
 gulp.task('dev', gulp.series(
   generateIconFont,
   sprites,
-  imagemin,  
+  imagemin,
   compileLess,
-  compileEs6,
   compileEjs,
   serve
 ));
