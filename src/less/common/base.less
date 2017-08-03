@@ -1,246 +1,103 @@
-@import './mixin/mixin.less';
+@charset "UTF-8";
+/* mixin:功能类 */
+@import "./mixin/mixin.less";
 
-select {
-  -webkit-appearance: none;
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
 }
-/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
- */
-
 html {
-  line-height: 1.15; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers (opinionated).
- */
-
 body {
+  font-family:  "PingFangSC-Light" ,"Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  background: #f9f9f9;
+}
+/* Remove default margin */
+body, h1, h2, h3, h4, h5, h6, ul, ol, p, pre {
+  padding: 0;
   margin: 0;
+  font-weight: 400;
 }
-
-/**
- * Add the correct display in IE 9-.
- */
-
-article,
-aside,
-footer,
-header,
-nav,
-section {
-  display: block;
-}
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/* Grouping content
+/* Links
    ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- * 1. Add the correct display in IE.
- */
-
-figcaption,
-figure,
-main { /* 1 */
-  display: block;
-}
-
-/**
- * Add the correct margin in IE 8.
- */
-
-figure {
-  margin: 1em 40px;
-}
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * 1. Remove the gray background on active links in IE 10.
- * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
- */
-
 a {
-  background-color: transparent; /* 1 */
-  -webkit-text-decoration-skip: objects; /* 2 */
+  color: #353535;
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  outline-width: 0;
+  cursor: pointer;
 }
 
-/**
- * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
-abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
-}
-
-/**
- * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
- */
-
-b,
-strong {
-  font-weight: inherit;
-}
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
-/**
- * Add the correct font style in Android 4.3-.
- */
-
-dfn {
-  font-style: italic;
-}
-
-/**
- * Add the correct background and color in IE 9-.
- */
-
-mark {
-  background-color: #ff0;
-  color: #000;
-}
-
-/**
- * Add the correct font size in all browsers.
- */
-
-small {
-  font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* Embedded content
+/* Font adjust
    ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- */
-
-audio,
-video {
-  display: inline-block;
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+footer,
+section,
+header {
+  font-size: 100%;
 }
-
-/**
- * Add the correct display in iOS 4-7.
- */
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
- * Remove the border on images inside links in IE 10-.
- */
-
-img {
-  border-style: none;
-}
-
-/**
- * Hide the overflow in IE.
- */
-
-svg:not(:root) {
-  overflow: hidden;
+/* List
+   ========================================================================== */
+ol,
+ul {
+  list-style: none;
 }
 
 /* Forms
    ========================================================================== */
-
+::-webkit-input-placeholder { 
+    color: #999;
+}
+:-moz-placeholder { 
+   color: #999;
+   opacity:  1;
+}
+::-moz-placeholder { 
+   color: #999;
+   opacity:  1;
+}
+:-ms-input-placeholder {
+   color: #999;
+}
+select::-ms-expand {
+    display: none;
+}
 /**
  * 1. Change the font styles in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
  */
+
+ textarea {
+   resize: none;
+ }
+
+input,
+textarea,
+button,
+select
+{
+  outline: none;
+  border: none;
+  -webkit-appearance : none;
+  -moz-appearance: none;
+}
 
 button,
 input,
@@ -310,11 +167,13 @@ button:-moz-focusring,
 }
 
 /**
- * Correct the padding in Firefox.
+ * Change the border, margin, and padding in all browsers (opinionated).
  */
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
 }
 
 /**
@@ -382,7 +241,7 @@ textarea {
 }
 
 /**
- * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
  */
 
 [type="search"]::-webkit-search-cancel-button,
@@ -400,53 +259,78 @@ textarea {
   font: inherit; /* 2 */
 }
 
-/* Interactive
+/* HTML5 display definitions
    ========================================================================== */
-
-/*
- * Add the correct display in IE 9-.
- * 1. Add the correct display in Edge, IE, and Firefox.
- */
-
-details, /* 1 */
-menu {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
   display: block;
 }
 
-/*
- * Add the correct display in all browsers.
- */
-
-summary {
-  display: list-item;
+//
+// 1. Correct `inline-block` display not defined in IE 8/9.
+// 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+//
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; // 1
+  vertical-align: baseline; // 2
 }
 
-/* Scripting
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- */
-
-canvas {
-  display: inline-block;
+//
+// Prevent modern browsers from displaying `audio` without controls.
+// Remove excess height in iOS 5 devices.
+//
+audio:not([controls]) {
+  display: none;
+  height: 0;
 }
 
-/**
- * Add the correct display in IE.
- */
-
+//
+// Address `[hidden]` styling not present in IE 8/9/10.
+// Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+//
+[hidden],
 template {
   display: none;
 }
 
-/* Hidden
+/* Text-level semantics
    ========================================================================== */
-
-/**
- * Add the correct display in IE 10-.
- */
-
-[hidden] {
-  display: none;
+em {
+  font-style: normal;
 }
+img {
+  border: 0;
+}
+
+// Tables
+// ==========================================================================
+//
+// Remove most spacing between table cells.
+//
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+.hidden{
+  display:none;
+ }

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+.px1rem(@name, @px) {
+  @{name}: @px/37.5rem;
+}
+// padding, margin
+.px2rem(@name, @tb, @lr) {
+  @{name}: @tb/37.5rem @lr/37.5rem;
+}
+.px3rem(@name, @t, @lr, @b) {
+  @{name}: @t/37.5rem @lr/37.5rem @b/37.5rem;
+}
+.px4rem(@name, @t, @r, @b, @l) {
+  @{name}: @t/37.5rem @r/37.5rem @b/37.5rem @l/37.5rem;
+}
+
+// 字体
+.font-size( @font-size ) {
+  font-size : @font-size;
+  [data-dpr="2"] & {
+    font-size: @font-size * 2;
+  }
+  [data-dpr="3"] & {
+    font-size: @font-size * 3;
+  }
+}
