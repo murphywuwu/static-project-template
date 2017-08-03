@@ -1,0 +1,40 @@
+@import './common/base';
+
+.head {
+    height: 100px;
+    background: #00adff;
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.head-inner {
+    position: relative;
+    height: 100%;
+    img, .title {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    img {
+        left: 0;
+        width: 136px;
+        padding-right: 20px;
+        border-right: 4px solid #fff; 
+    }
+    .title {
+        right: 0;
+        width: 374px;
+        height: 66px;
+        line-height: 66px;
+        border-radius: 4px;
+        background: #fff;
+        color: #00adff;
+        font-size: 50px;
+    }
+}
+
+.body {
+    padding-top: 20px;
+    background: #3e4396;
+}
+
