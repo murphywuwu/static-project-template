@@ -1,0 +1,188 @@
+@import './common/base.less';
+
+body {
+    .px1rem(padding-bottom, 86);
+    background: #3e4396;
+}
+
+
+.head {
+    height: 100px;
+    background: #00adff;
+    text-align: center;
+    .px1rem(padding-left, 60);
+    .px1rem(padding-right, 40);
+}
+.head-inner {
+    position: relative;
+    height: 100%;
+    img, .title {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    img {
+        left: 0;
+        .px1rem(width, 204);
+        .px1rem(padding-right, 20);
+        border-right: 4px solid #fff; 
+    }
+    .title {
+        right: 0;
+        .px1rem(width, 374);
+        .px1rem(height, 66);
+        .px1rem(line-height, 66);
+        .px1rem(border-radius, 6);
+        background: #fff;
+        color: #00adff;
+        font-size: 50px;
+        .px1rem(font-size, 50);
+    }
+}
+
+.content {
+    position: relative;
+    .px1rem(padding-top, 20);
+    .cal-robot {
+        .px1rem(width, 203);
+        .px1rem(margin-left, 55);
+    }
+    .active-pic-815 {
+        position: absolute;
+        .px1rem(width, 374);
+        .px1rem(top, 55);
+        .px1rem(right, 104);
+    }
+    .cal-info-list {
+        .px1rem(margin-left, 77);
+        .px1rem(margin-right, 80);
+        .px4rem(padding, 43, 22, 22, 40);
+        background: #f0e929;
+        border: 5px solid #231815;
+        text-align: center;
+    }
+    h3, h4, h5 {
+        font-weight: 700;
+    }
+    h3 {
+        .px1rem(font-size, 44);
+    }
+    h4 {
+        .px1rem(font-size, 32);
+    }
+    h5 {
+        .px1rem(font-size, 28);
+    }
+    p {
+        .px1rem(font-size, 22);
+    }
+}
+.cal-info-list {
+    .congratulate {
+        display: inline-block;
+        .px1rem(margin-bottom, 24);
+        img {
+            .px1rem(width, 200);
+        }
+    }
+    h3:nth-child(2) {
+        .px1rem(margin-bottom, 28);
+    }
+    .price {
+        color: #fff;
+        display: inline-block;
+        .px1rem(width, 360);
+        .px1rem(height, 95);
+        background: #f02929;
+        .px1rem(line-height, 70);
+        .px1rem(border-width, 8);
+        border-style: solid;
+        border-color: #130509;
+        .px1rem(font-size, 48);
+        .px1rem(margin-bottom, 30);
+        .px1rem(border-radius, 6);
+        span {
+            color: #7e241e;
+        }
+    }
+    .btn {
+        .px1rem(border-width, 5);
+        border-style: solid;
+        border-color: #130509;
+        background: #fff;
+        .px1rem(border-radius, 8);
+    }
+    .btn-apply {
+        .px1rem(font-size, 48);
+        .px1rem(width, 360);
+        .px1rem(height, 95);
+        display: inline-block;
+        .px1rem(border-radius, 6);
+        .px1rem(line-height, 95);
+        .px1rem(margin-bottom, 30);
+    }
+    h4:nth-child(5) {
+        .px1rem(margin-bottom, 20);
+    }
+    h5:nth-child(6) {
+        .px1rem(margin-bottom, 22);
+    }
+    .intro {
+        .px1rem(margin-bottom, 32);
+        line-height: 1.4;
+    }
+    h5:nth-child(9) {
+        .px1rem(margin-bottom, 16);
+    }
+    .device-intro {
+        display: inline-block;
+        .px1rem(margin-top, 16);
+        .px1rem(font-size, 18);
+        .px1rem(margin-bottom, 28);
+        .px1rem(width, 468);
+
+        .img-wrap {
+            float: left;
+            .px1rem(margin-left, 20);
+            .px1rem(margin-bottom, 10);
+            .px1rem(width, 130);
+        }
+        img {
+            display: inline-block;
+            width: 100%;
+            .px1rem(margin-bottom, 15);
+        }
+    }
+    .btn-apply-ok {
+        .px1rem(line-height, 85);
+        .px1rem(margin-bottom, 18);
+    }
+    .btn-apply-ok, .btn-tel {
+        display: inline-block;
+        .px1rem(width, 392);
+        .px1rem(height, 85);
+        .px1rem(font-size, 41);
+    }
+    .btn-tel {
+        .px1rem(padding-left, 20);
+        .px1rem(margin-bottom, 62);
+        .icon-phone {
+            .px1rem(width, 58);
+            .px1rem(margin-right, 20);
+            .px1rem(margin-top, 8);
+        }
+        .icon-phone, span {
+            float: left;
+        }
+        span {
+            .px1rem(margin-top, 22);
+        }
+    }
+    .copy {
+        line-height: 1.4;
+    }
+}
+
+
+
+

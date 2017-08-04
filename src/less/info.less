@@ -1,4 +1,4 @@
-@import './common/base';
+@import './common/base.less';
 
 body {
     background: #3e4396;
@@ -57,7 +57,7 @@ body {
         .px1rem(margin-right, 80);
         .px4rem(padding, 43, 22, 22, 40);
         background: #c2c2c2;
-        border: 7px solid #231815;
+        border: 5px solid #231815;
     }
 }
 
@@ -80,6 +80,8 @@ body {
         position: absolute;
         width: 100%;
         height: 100%;
+        z-index: 1;
+        background: transparent;
     }
 }
 .box::after {
@@ -90,7 +92,7 @@ body {
     .triangle(down, 12, #00adff);
 }
 .box-long {
-
+    
 }
 .box-short {
     width: 48%;
@@ -156,6 +158,9 @@ body {
     display: block;
     height: 100%;
     .px1rem(line-height, 62);
+}
+.line-8 {
+    display: block;
 }
 
 
