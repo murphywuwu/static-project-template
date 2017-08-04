@@ -126,6 +126,7 @@ body {
 
 .line-4 {
     .px1rem(padding-top, 12);
+
     span, label {
         display: inline-block;
     }
@@ -139,6 +140,9 @@ body {
         .px1rem(height, 36);
         .px1rem(border-radius, 36);
         background: #3e4e96;
+    }
+    input[type="radio"] {
+        display: none;
     }
 
     input[type="radio"]:checked + label:after {
