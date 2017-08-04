@@ -18,8 +18,8 @@
         <img src="../img/h5-04.png" alt="815客如云五周年换购狂欢" class="active-pic-815">
         <form action="" method="post" class="cal-info-list">
             <div class="line line-1">
-                <label class="box box-long" for="device-type">
-                    <select name="device-type" id="device-type">
+                <label class="box box-long">
+                    <select name="device-type" id="device-type" data-device-type>
                         <option value="0">设备类型</option>
                         <option value="1">PC 电脑收银设备</option>
                         <option value="2">单屏Windows触摸设备</option>
@@ -27,8 +27,8 @@
                 </label>
             </div>
             <div class="line line-2">
-                <label class="box box-long" id="software-type">
-                    <select name="software-type">
+                <label class="box box-long">
+                    <select name="software-type" id="software-type" data-software-type>
                         <option value="0">软件类型</option>
                         <option value="1">SaaS软件</option>
                         <option value="2">传统软件</option>
@@ -37,15 +37,15 @@
             </div>
             <div class="line line-3">
                 <label class="box box-short" for="condition">
-                    <select name="condition" id="condition">
+                    <select name="condition" id="condition" data-condition>
                         <option value="0">成色</option>
                         <option value="1">1成</option>
                         <option value="2">2成</option>
                         <option value="3">3成</option>
                     </select>
                 </label>
-                <label class="box box-short" id="durable-year">
-                    <select name="durable-year">
+                <label class="box box-short">
+                    <select name="durable-year" id="durable-year" data-durable-year>
                         <option value="0">使用年数</option>
                         <option value="1">1年</option>
                         <option value="2">2年</option>
@@ -60,27 +60,26 @@
                 <label for="avalible-use-no">否</label>
             </div>
             <div class="line line-5">
-                <input type="text" placeholder="输入餐厅名称">
+                <input type="text" placeholder="输入餐厅名称" data-restaurant-name>
             </div>
             <div class="line line-6">
                 <label class="box box-short" for="province">
                     <select name="province" id="province">
-                        <option value="0">所在省</option>
                     </select>
                 </label>
                 <label class="box box-short" for="city">
                     <select name="city" id="city">
-                        <option value="0">所在市</option>
                     </select>
                 </label>
             </div>
             <div class="line line-7">
-                <input type="text" placeholder="输入手机号">
+                <input type="text" placeholder="输入手机号" data-tel-num>
             </div>
-            <a class="line line-8 btn btn-cal" href="/result">立即计算</a>
+            <button type="submit" class="line line-8 btn btn-cal" data-btn="cal">立即计算</button>
         </form>
     </div>
 
+    <% include ../components/dialog/dialog.ejs %>
     <script src='../../node_modules/jquery/dist/jquery.min.js'></script>
     <script src="../js/info.min.js"></script>
 </body>

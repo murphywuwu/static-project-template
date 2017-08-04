@@ -1,4 +1,7 @@
+var Dialog = require('../components/dialog/dialog');
 var citylist = require('./widget/city-select');
+
+var dialog = new Dialog(2000);
 
 var data = [
     {
@@ -604,3 +607,39 @@ $('#province, #city').citylist({
     metaTag : 'name'
 });
 
+var btn_cal = $('[data-btn="cal"]');
+
+
+btn_cal.on('click', verifyInfoComplete);
+
+function verifyInfoComplete ( e ) {
+    e.preventDefault();
+
+    var device_type = $('[data-device-type]').val();
+    var software_type = $('[data-software-type]').val();
+    var condition = $('[data-condition]').val();
+    var durable_year = $('[data-durable-year]').val();
+    var restaurant_name = $('[data-restaurant-name]').val();
+    var tel_num = $('[data-tel-num]').val();
+
+    if ( device_type == 0 ) {
+        return dialog.tips('请选择设备类型');
+    }
+    if ( software_type == 0 ) {
+        return dialog.tips('请选择软件类型'); 
+    }
+    if ( condition == 0 ) {
+        return dialog.tips('请选择设备成色');
+    }
+    if ( durable_year == 0 ) {
+        return dialog.tips('请选择设备使用年数');
+    }
+    if ( !restaurant_name ) {
+        return dialog.tips('请填写餐厅名称');
+    }
+    if ( !tel_num ) {
+        return dialog.tips('请填写手机号');
+    }
+
+    window.location.href = '/result';
+}

@@ -1,3 +1,4 @@
+
 // 基础变量配置
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')({ pattern: '*' });
@@ -429,6 +430,3 @@ gulp.task('build_dist', gulp.series(
   replaceCssRev,
   replaceHtmlRev
 ));
-
-
-
