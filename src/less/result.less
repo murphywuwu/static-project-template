@@ -6,6 +6,11 @@ body {
     background: #3e4396;
 }
 
+@keyframes greenPulse {
+    from { background-color: #f02929; box-shadow: 0 0 9px #333; transform: scale(1) }
+    50% { background-color: #f02922; box-shadow: 0 0 18px #91bd09; transform: scale(0.9) }
+    to { background-color: #f02929; box-shadow: 0 0 9px #333;  transform: scale(1) }
+}
 
 .head {
     height: 100px;
@@ -26,7 +31,9 @@ body {
         left: 0;
         .px1rem(width, 204);
         .px1rem(padding-right, 20);
-        border-right: 4px solid #fff; 
+        .px1rem(border-right-width, 4);
+        border-right-style: solid;
+        border-right-color: #fff;
     }
     .title {
         right: 0;
@@ -59,7 +66,9 @@ body {
         .px1rem(margin-right, 80);
         .px4rem(padding, 43, 22, 22, 40);
         background: #f0e929;
-        border: 5px solid #231815;
+        .px1rem(border-width, 5);
+        border-style: solid;
+        border-color: #231815;
         text-align: center;
     }
     h3, h4, h5 {
@@ -76,6 +85,24 @@ body {
     }
     p {
         .px1rem(font-size, 22);
+    }
+    .btn {
+        // .px1rem(border-width, 5);
+        // border-style: solid;
+        // border-color: #130509;
+        // background: #fff;
+        color: #fff;
+        .px1rem(border-radius, 8);
+        animation-name: greenPulse;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+    .btn.success {
+        .px1rem(border-width, 5);
+        border-style: solid;
+        border-color: #999;
+        background: #ccc;   
+        animation: none;
     }
 }
 .cal-info-list {
@@ -105,13 +132,6 @@ body {
         span {
             color: #7e241e;
         }
-    }
-    .btn {
-        .px1rem(border-width, 5);
-        border-style: solid;
-        border-color: #130509;
-        background: #fff;
-        .px1rem(border-radius, 8);
     }
     .btn-apply {
         .px1rem(font-size, 48);
