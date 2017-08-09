@@ -640,6 +640,32 @@ function verifyInfoComplete ( e ) {
     if ( !tel_num ) {
         return dialog.tips('请填写手机号');
     }
+    var able = $('input[name="able"]:checked').val();
+    var province = $('#province').val();
+    var city = $('#city').val();
+    var url = '/recycle/result';
 
-    window.location.href = '/result';
+    $.ajax({
+        type: 'post',
+        url: '/recycle',
+        data: {
+            device_type: device_type,
+            software: software_type,
+            conditions: condition,
+            durable_year: durable_year,
+            able: able,
+            custom: restaurant_name,
+            province: province,
+            city: city,
+            mobile: tel_num,
+            _token:'{{ csrf_token() }}'
+
+        }
+    }).done(function ( data ) {
+        window.location.href = url+'?id='+ data;
+
+    }).fail(function ( jqXhr, status, err ) {
+        console.log(err);
+        dialog.tips('数据提交失败');
+    });
 }
