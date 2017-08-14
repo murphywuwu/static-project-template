@@ -104,8 +104,77 @@ body {
         background: #ccc;   
         animation: none;
     }
+    .partner {
+        position: relative;
+        text-align: center;
+        color: #f0e929;
+        .px1rem(border-radius, 6);
+        .px1rem(width, 450);        
+        margin: 0 auto;
+        border: 3px solid #f0e929;
+        box-shadow: 0 0 0 2px #000,
+                    0 0 0 2px #000 inset;
+        .title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            .px1rem(top, -26);
+            .px2rem(padding, 0, 14);
+            .px1rem(font-size, 60);
+            background: #3e4396;
+            text-shadow:-3px 0 #000, /*向左阴影*/  
+                        0px -3px #000, /*向上阴影*/    
+                        3px 0 #000,    /*向右阴影*/  
+                        0px 3px #000;  /*向下阴影*/
+        }
+        .icon-partner {
+            display: inline-block;
+        }
+        p {
+            .px1rem(font-size, 24);
+            // color: #f0e929;
+            text-shadow:-1px 0 #000, /*向左阴影*/  
+            0px -1px #000, /*向上阴影*/    
+            1px 0 #000,    /*向右阴影*/  
+            0px 1px #000;  /*向下阴影*/
+            font-weight: 400;
+        }
+        .icon {
+            float: left;
+        }
+    }
+    .partner-1 {
+        .px1rem(height, 258);
+        .icon-partner {
+            .px1rem(margin-top, 53);
+            .px1rem(margin-bottom, 10);
+        }
+        .icon {
+            .px1rem(width, 97);
+        }
+        .icon-meituan {
+            .px1rem(margin-right, 20);
+        }
+    }
+    .partner-2 {
+        .px1rem(height, 339);
+        .icon-partner-wrap {
+            .px1rem(margin-left, -20);
+        }
+        .icon-partner-wrap-1 {
+            .px1rem(margin-top, 60);
+            .px1rem(margin-bottom, 20);
+        }
+        .icon {
+            .px1rem(margin-left, 20);
+            img {
+                .px1rem(width, 80);
+            }
+        }
+    }
 }
 .cal-info-list {
+    .px1rem(margin-bottom, 52);
     .congratulate {
         display: inline-block;
         .px1rem(margin-bottom, 24);
@@ -202,15 +271,6 @@ body {
     .copy {
         line-height: 1.4;
         .px1rem(margin-bottom, 40);
-    }
-    .partner {
-        .icon-partner {
-            .px1rem(margin-top, 20);
-        }
-        img {
-            .px1rem(width, 100);
-            .px1rem(margin-left, 25);
-        }
     }
 }
 
